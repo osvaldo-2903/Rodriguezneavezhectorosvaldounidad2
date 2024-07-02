@@ -13,11 +13,11 @@ body {
   background: #fff;
   color: #2f3138;
   font-family: "Open Sans", sans-serif;
-  transform: 6s ease all;
   
   
     &.dark{
       background: #000;
+      transform: 6s ease all;
   }
 }
 
@@ -114,6 +114,7 @@ h6 {
   padding-bottom: 20px;
 }
 
+
 .section-header::before {
   content: '';
   position: absolute;
@@ -144,7 +145,12 @@ h6 {
 
 .section-with-bg {
   background-color: #f6f7fd;
-  
+
+}
+
+body.dark section{
+  background: #000;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.16);
 }
 
 /*--------------------------------------------------------------
