@@ -16,15 +16,16 @@
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ceb3be7809.js" crossorigin="anonymous"></script>
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/venobox/venobox.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/toggle.css">
 
   <!-- =======================================================
     Theme Name: TheEvent
@@ -34,7 +35,7 @@
   ======================================================= -->
 </head>
 
-<body>
+<body data-bs-theme="light">
 
   <!--==========================
     Header
@@ -59,7 +60,43 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#supporters">Sponsors</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>
+          <button class="switch" id="switch">
+            <span><i class="fa-regular fa-sun"></i></span>
+            <span><i class="fa-regular fa-moon"></i></span>
+            <style>
+              .switch {
+  background: #343D5B;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+  &::after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 0;
+    left: unset;
+    right: 0;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+  }
+  span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+  }
+}
+            </style>
+          </button> 
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -1103,6 +1140,9 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  
+
+
 </body>
 
 </html>
