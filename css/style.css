@@ -13,6 +13,12 @@ body {
   background: #fff;
   color: #2f3138;
   font-family: "Open Sans", sans-serif;
+  transform: 6s ease all;
+  
+  
+    &.dark{
+      background: #000;
+  }
 }
 
 a {
@@ -138,6 +144,7 @@ h6 {
 
 .section-with-bg {
   background-color: #f6f7fd;
+  
 }
 
 /*--------------------------------------------------------------
@@ -188,7 +195,10 @@ h6 {
   margin: 0;
   max-height: 40px;
 }
-
+body.dark header{
+  background: #000;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.16);
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -354,6 +364,8 @@ h6 {
   margin: 0;
 }
 
+
+
 /* Mobile Nav Toggle */
 
 #mobile-nav-toggle {
@@ -375,6 +387,7 @@ h6 {
   color: #fff;
 }
 
+
 /* Mobile Nav Styling */
 
 #mobile-nav {
@@ -389,6 +402,8 @@ h6 {
   overflow-y: auto;
   transition: 0.4s;
 }
+
+
 
 #mobile-nav ul {
   padding: 0;
@@ -1147,7 +1162,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #faq #faq-list a.collapsed {
-  color: #000;
+  color: #112363;
 }
 
 #faq #faq-list a.collapsed i::before {
