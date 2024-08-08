@@ -22,6 +22,7 @@ if ($stmt->rowCount() > 0) {
 
 if ($tipo == 1) {
     echo "Bienvenido, administrador";
+
     // Aquí incluirías el contenido de tu página
 } else {
     echo "<script>
