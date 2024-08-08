@@ -13,7 +13,7 @@ if (isset($_POST['entrar'])) {
     if ($count) {
         $_SESSION['email'] = $campo['email'];
         $_SESSION['password'] = $campo['password'];
-        header("location:admin_usuario.php");
+        header("location:administradores.php");
     } else {
         echo "<p>Datos Erroneos, verifique que el correo tanto como la contraseña sean correctos</p>";
         echo "</div>";
