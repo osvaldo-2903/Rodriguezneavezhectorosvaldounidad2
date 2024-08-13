@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
-
+  
   <!-- Favicons -->
   <link href="img/avion.png" rel="icon">
 
@@ -147,28 +147,6 @@
         <img src="img/avion_3.png" alt="" title="" width="70px" height="50px"></a>
         <p class="mb-4 pb-0" style="color: black; margin-top: 1%;">¡Bienvenido!</p>
         <div class="formulario" style="width: 85%; height: 100%; margin: auto;">
-        <form method="post" action="logeo.php">
-    <div class="uk-margin">
-        <div class="uk-inline" style="width: 120%;">
-            <span class="uk-form-icon" uk-icon="icon: user" style="color: rgb(31, 227, 31);"></span>
-            <input class="uk-input" type="email" aria-label="Not clickable icon" placeholder="Email" name="email" required>
-        </div>
-    </div>
-    <div class="uk-margin">
-        <div class="uk-inline" style="width: 120%;">
-            <span class="uk-form-icon" uk-icon="icon: lock" style="color: red;"></span>
-            <input class="uk-input" type="password" aria-label="Not clickable icon" placeholder="Password" name="password" required>
-        </div>
-    </div>
-    <button class="uk-button uk-button-secondary uk-width-1-1" name="entrar" type="submit">Entrar</button>
-</form>
-<hr class="uk-divider-icon">
-<p uk-margin>
-    <button class="uk-button uk-button-default"><span uk-icon="google"></span></button>
-    <button class="uk-button uk-button-primary"><span uk-icon="facebook"></span></button>
-    <button class="uk-button uk-button-secondary"><span uk-icon="apple"></span></button>
-</p>
-<a href="#" style="color: black;">¿Olvidaste tu contraseña?</a>
         </div>
       </div>
     </div>
