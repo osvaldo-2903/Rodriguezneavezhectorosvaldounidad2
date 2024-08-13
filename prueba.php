@@ -191,7 +191,7 @@ if (isset($_POST['entrar'])) {
             <button class="uk-button uk-button-primary"><span uk-icon="facebook"></span></button>
             <button class="uk-button uk-button-secondary"><span uk-icon="apple"></span></button>
           </p>
-          <a href="recuperar.html" style="color: black;">¿Olvidaste tu contraseña?</a></li>
+          <a href="chpas.php" style="color: black;">¿Olvidaste tu contraseña?</a></li>
           </form>
         </div>
       </div>
