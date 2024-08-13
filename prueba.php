@@ -1,25 +1,3 @@
-<?php
-include 'db_conexion.php';
-session_start();
-if (isset($_POST['entrar'])) {
-  $_SESSION['email'] = $_POST['email'];
-  $_SESSION['password'] = $_POST['password'];
-  $query = $cnnPDO->prepare('SELECT * from usuarios WHERE email=:email and password=:password');
-  $query->bindParam(':email', $_SESSION['email']);
-  $query->bindParam(':password', $_SESSION['password']);
-  $query->execute();
-  $count = $query->rowCount();
-  $campo = $query->fetch();
-  if ($count) {
-    $_SESSION['email'] = $campo['email'];
-    $_SESSION['password'] = $campo['password'];
-    header("location:administradores.php");
-  } else {
-    $error = true;
-  }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +7,7 @@ if (isset($_POST['entrar'])) {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
-
+  
   <!-- Favicons -->
   <link href="img/avion.png" rel="icon">
 
@@ -169,6 +147,7 @@ if (isset($_POST['entrar'])) {
         <img src="img/avion_3.png" alt="" title="" width="70px" height="50px"></a>
         <p class="mb-4 pb-0" style="color: black; margin-top: 1%;">¡Bienvenido!</p>
         <div class="formulario" style="width: 85%; height: 100%; margin: auto;">
+<<<<<<< HEAD
           <form method="post">
             <div class="uk-margin">
               <div class="uk-inline" style="width: 120%;">
@@ -193,14 +172,15 @@ if (isset($_POST['entrar'])) {
           </p>
           <a href="chpas.php" style="color: black;">¿Olvidaste tu contraseña?</a></li>
           </form>
+=======
+>>>>>>> c04c4e56d816e6a55750ec5bfdd6de32a10f4be7
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Error Modal -->
-  <?php if ($error): ?>
-    <div class="modal fade show" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
+  <!-- Error Modal 
+   <div class="modal fade show" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
       aria-hidden="true" style="display: block;">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -224,7 +204,7 @@ if (isset($_POST['entrar'])) {
         $('#errorModal').modal('show');
       }, 500);
     </script>
-  <?php endif; ?>
+    -->
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
