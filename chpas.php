@@ -237,34 +237,7 @@ if (isset($_POST['recuperar'])) {
     </div>
   </section>
 
-  <!-- Error Modal -->
-  <?php if ($error): ?>
-    <div class="modal fade show" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
-      aria-hidden="true" style="display: block;">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="errorModalLabel">Error en la autenticación</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Datos Erróneos, verifica que el correo y la contraseña sean correctos.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      setTimeout(() => {
-        $('#errorModal').modal('show');
-      }, 500);
-    </script>
-  <?php endif; ?>
-
+  
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
