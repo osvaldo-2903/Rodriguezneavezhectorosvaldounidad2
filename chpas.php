@@ -33,7 +33,7 @@ if (isset($_POST['recuperar'])) {
 
         // Enviar el código a través de Twilio
         $sid = "AC0befad9c0f3f74a306fbe79d4c2be8ad"; // Reemplaza con tu SID
-        $token = "0664a172d847006567ccf6a9263c3d77"; // Reemplaza con tu token
+        $token = "45d3e32ad9bb610daff25af7e6ee8393"; // Reemplaza con tu token
         $twilio = new Client($sid, $token);
 
         $telefono_formateado = '52' . $telefono; // Formatear el número de teléfono con el código de país

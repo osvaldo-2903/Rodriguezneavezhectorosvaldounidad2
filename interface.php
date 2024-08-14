@@ -13,7 +13,7 @@ $tipo = $_SESSION['tipo'];
 
 echo "<h1>Bienvenido, $nombre</h1>";
 
-switch($tipo) {
+switch ($tipo) {
     case 1:
         echo "Contenido para Administrador";
         break;
