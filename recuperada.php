@@ -1,9 +1,13 @@
 <?php
 include 'db_conexion.php';
+include 'chpas.php';
 session_start();
+if (isset($_SESSION['email'])) {
+  $_SESSION['email'] = $email;
 
-if (isset($_POST['validar'])) {
+  if (isset($_POST['validar'])) {
     $codigo = $_POST['codigo'];
+
 
     // Preparar y ejecutar la consulta para buscar el código en la base de datos
     $query = $cnnPDO->prepare('SELECT * FROM codigos_recuperacion WHERE codigo = :codigo');
@@ -12,16 +16,18 @@ if (isset($_POST['validar'])) {
 
     // Verificar si se encontró el código
     if ($query->rowCount() > 0) {
-        $campo = $query->fetch();
+      $campo = $query->fetch();
 
-        // Puedes agregar lógica adicional para verificar la expiración del código aquí
+      // Puedes agregar lógica adicional para verificar la expiración del código aquí
 
-        echo 'Contraseña Actualizada';
-        header("Location: prueba.php");
-        exit; // Asegúrate de detener la ejecución del script después de redirigir
+      echo 'Contraseña Actualizada. Bienvenido, ' . $_SESSION['email'];
+      exit; // Asegúrate de detener la ejecución del script después de redirigir
     } else {
-        echo 'Código incorrecto o expirado.';
+      echo 'Código incorrecto o expirado.';
     }
+  }
+} else {
+  echo "No has iniciado sesión.";
 }
 ?>
 
@@ -175,38 +181,41 @@ if (isset($_POST['validar'])) {
         <img src="img/avion_3.png" alt="" title="" width="70px" height="50px"></a>
         <p class="mb-4 pb-0" style="color: black; margin-top: 1%;">Recupera tu contraseña</p>
         <div class="formulario" style="width: 85%; height: 100%; margin: auto;">
-            <br>
-            <br>
+          <br>
+          <br>
           <form method="post">
             <div class="uk-margin">
               <div class="uk-inline" style="width: 120%;">
-               
+
                 <span class="uk-form-icon" uk-icon="icon: user" style="color: rgb(31, 227, 31);"></span>
-                <input class="uk-input" type="text" aria-label="Not clickable icon" placeholder="Codigo de verificacion" id="codigo" name="codigo" required>
+                <input class="uk-input" type="text" aria-label="Not clickable icon" placeholder="Codigo de verificacion"
+                  id="codigo" name="codigo" required>
               </div>
             </div>
             <div class="uk-margin">
               <div class="uk-inline" style="width: 120%;">
-                
-                
+
+
               </div>
             </div>
-            <button class="uk-button uk-button-secondary uk-width-1-1" name="validar" type="submit">Actualizar contraseña</button>
+            <button class="uk-button uk-button-secondary uk-width-1-1" name="validar" type="submit">Actualizar
+              contraseña</button>
             <br>
             <br>
             <br>
-            <h4 style="color: black; font-family: arial: font-size: 20px:">Nota: Al poner el codigo podras hacer la recuperacion de tu contraseña, en caso de que no te llegue el codigo, puedes volver a intentarlo.</h4>
+            <h4 style="color: black; font-family: arial: font-size: 20px:">Nota: Al poner el codigo podras hacer la
+              recuperacion de tu contraseña, en caso de que no te llegue el codigo, puedes volver a intentarlo.</h4>
           </form>
-          
-         
-        
+
+
+
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  
+
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>

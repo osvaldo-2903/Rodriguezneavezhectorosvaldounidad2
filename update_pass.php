@@ -1,3 +1,29 @@
+<?php
+include 'db_conexion.php';
+session_start();
+if (isset($_POST['validar'])) {
+  $codigo = $_POST['codigo'];
+  $password = $_POST['password'];
+  $confirmar = $_POST['confirmar'];
+
+  if ($password === $confirmar) {
+    // Hashear la nueva contraseña antes de almacenarla
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Preparar y ejecutar la consulta de actualización de contraseña
+    $updateQuery = $cnnPDO->prepare('UPDATE usuarios SET password = :password WHERE email = :email');
+    $updateQuery->bindParam(':password', $hashedPassword);
+    $updateQuery->bindParam(':email', $email);
+    $updateQuery->execute();
+
+    echo 'Contraseña actualizada correctamente.';
+    exit;
+  } else {
+    echo 'Ocurrio un error';
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -141,35 +167,33 @@
   ============================-->
   <section id="intro">
     <div class="intro-container wow fadeIn">
-      <div style="width: 30%; height: 80%; background-color: white; border-radius: 20px;">
+      <div style="width: 30%; height: 70%; background-color: white; border-radius: 20px;">
         <br>
         <br>
         <img src="img/avion_3.png" alt="" title="" width="70px" height="50px"></a>
-        <p class="mb-4 pb-0" style="color: black; margin-top: 1%;">¡Bienvenido!</p>
+        <p class="mb-4 pb-0" style="color: black; margin-top: 1%;">Actualización de Contraseña</p>
         <div class="formulario" style="width: 85%; height: 100%; margin: auto;">
           <form method="post">
             <div class="uk-margin">
               <div class="uk-inline" style="width: 120%;">
-                <span class="uk-form-icon" uk-icon="icon: user" style="color: rgb(31, 227, 31);"></span>
-                <input class="uk-input" type="email" aria-label="Not clickable icon" placeholder="Email" name="email">
+                <span class="uk-form-icon" uk-icon="icon: lock" style="color: red;"></span>
+                <input class="uk-input" type="password" aria-label="Not clickable icon" placeholder="Nueva Contraseña"
+                  name="password">
               </div>
             </div>
             <div class="uk-margin">
               <div class="uk-inline" style="width: 120%;">
                 <span class="uk-form-icon" uk-icon="icon: lock" style="color: red;"></span>
-                <input class="uk-input" type="password" aria-label="Not clickable icon" placeholder="Password"
+                <input class="uk-input" type="password" aria-label="Not clickable icon" placeholder="Confirmar"
                   name="password">
               </div>
             </div>
-            <button class="uk-button uk-button-secondary uk-width-1-1" name="entrar" type="submit">Entrar</button>
+            <button class="uk-button uk-button-secondary uk-width-1-1" name="entrar" type="submit">Actualizar</button>
+            <br>
+            <br>
+            <button class="uk-button uk-button-danger uk-width-1-1" name="entrar" type="submit"
+              style="width: 50%">Inicio</button>
           </form>
-          <hr class="uk-divider-icon">
-          <p uk-margin sty>
-            <button class="uk-button uk-button-default"><span uk-icon="google"></span></button>
-            <button class="uk-button uk-button-primary"><span uk-icon="facebook"></span></button>
-            <button class="uk-button uk-button-secondary"><span uk-icon="apple"></span></button>
-          </p>
-          <a href="chpas.php" style="color: black;">¿Olvidaste tu contraseña?</a></li>
           </form>
         </div>
       </div>
